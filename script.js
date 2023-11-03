@@ -9,8 +9,11 @@ let quotes = [
  
 document.addEventListener("DOMContentLoaded", function(event) {
   // Random quote of the day generator
+  // const randomQuote = function() {
+  //   document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+  // };
   const randomQuote = function() {
-    document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+    document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
   };
   randomQuote();
   
@@ -27,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // document.querySelector('li:last-child').remove()
 
   // Part 4
-  document.querySelectorAll('.special-title').forEach(x => {
+  document.querySelectorAll('.special-title').forEach( x => {
     x.style.fontSize = '1rem'
   });
 
@@ -45,15 +48,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const newh1 = document.createElement('h1')
   newh1.textContent = newLi.textContent
   const newP = document.createElement('p')
-  newP.textContent = "I crashed my car but still won!"
+  newP.textContent = "I CRASHED MY CAR BUT STILL WON!"
   document.querySelector('.main').appendChild(newDiv)
   newDiv.appendChild(newh1)
   newDiv.appendChild(newP)
 
   // Part 8
-
+  document.querySelector('#quote-title').addEventListener('click', () => {
+    randomQuote()
+  })
 
   // Part 9
+  function togPur(x) {
+    x.classList.toggle('.purple')
+  } 
+  function togRed(x) {
+    x.classList.toggle('.red')
+  }
+
+  document.querySelectorAll('.blog-post').forEach( x => {
+    x.addEventListener('mouseout', togPur(x))
+    x.addEventListener('mouseenter', togRed(x))
+  })
+
+
+
+
+
+
+
+
 
 
 });
