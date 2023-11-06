@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Part 7
   const newDiv = document.createElement('div')
-  newDiv.setAttribute('class', 'blog-post purple')
+  newDiv.setAttribute('class', 'blog-post')
   const newh1 = document.createElement('h1')
   newh1.textContent = newLi.textContent
   const newP = document.createElement('p')
@@ -59,17 +59,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
   })
 
   // Part 9
-  function togPur(x) {
-    x.classList.toggle('.purple')
-  } 
-  function togRed(x) {
-    x.classList.toggle('.red')
-  }
-
-  document.querySelectorAll('.blog-post').forEach( x => {
-    x.addEventListener('mouseout', togPur(x))
-    x.addEventListener('mouseenter', togRed(x))
+  const blog = document.querySelectorAll('.blog-post')
+  blog.forEach( x => {
+    x.addEventListener('mouseout', e => {
+      console.log(e.target)
+      x.classList.toggle('purple')
+    })
+    x.addEventListener('mouseenter', e => {
+      console.log(e.target)
+      x.classList.toggle('red')
+    })
   })
+  
+  
+
+  
 
 
 
