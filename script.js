@@ -61,12 +61,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Part 9
   const blog = document.querySelectorAll('.blog-post')
   blog.forEach( x => {
-    x.addEventListener('mouseout', e => {
-      console.log(e.target)
+    x.addEventListener('mouseout', () => {
       x.classList.toggle('purple')
     })
-    x.addEventListener('mouseenter', e => {
-      console.log(e.target)
+    x.addEventListener('mouseenter', () => {
       x.classList.toggle('red')
     })
   })
